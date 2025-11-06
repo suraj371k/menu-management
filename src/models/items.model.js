@@ -8,7 +8,6 @@ export const itemSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      required: true,
     },
     description: {
       type: String,
