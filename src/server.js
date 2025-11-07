@@ -26,7 +26,7 @@ app.use("/api/items", itemRoutes);
 //database connection
 connectDb();
 
-const port = 6000;
+const port = process.env.PORT || 5000
 
 app.listen(port, () => {
   console.log(`app is running on ${port}`);

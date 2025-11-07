@@ -280,3 +280,49 @@ export const deleteItem = async (req, res) => {
     });
   }
 };
+
+
+// Search items by name or description (optionally filter by category/subcategory)
+export const searchItems = async (req, res) => {
+  try {
+    const { query, category, subCategory } = req.query;
+
+    // Ensure a search term is provided
+    if (!query || query.trim() === "") {
+      return res
+        .status(400)
+        .json({ success: false, message: "Search query is required" });
+    }
+
+    // Build dynamic MongoDB filter
+    const searchFilter = {
+      $or: [
+        { name: { $regex: query, $options: "i" } },
+        { description: { $regex: query, $options: "i" } },
+      ],
+    };
+
+    // Optional category/subcategory filters
+    if (category) searchFilter.category = category;
+    if (subCategory) searchFilter.subCategory = subCategory;
+
+    // Fetch matching items
+    const items = await Item.find(searchFilter)
+      .populate("category", "name taxApplicability tax")
+      .populate("subCategory", "name taxApplicability tax");
+
+    return res.status(200).json({
+      success: true,
+      message: "Search results fetched successfully",
+      count: items.length,
+      items,
+    });
+  } catch (error) {
+    console.error("Error in searchItems controller:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};

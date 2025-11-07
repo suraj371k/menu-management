@@ -17,4 +17,6 @@ router.put('/:id' , updateItems)
 
 router.delete('/:id' , deleteItem)
 
+router.get("/search", searchItems);
+
 export default router
