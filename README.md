@@ -142,8 +142,7 @@ Include pagination and caching for large data sets.
 
 🎥 A short Loom video demoing all CRUD operations and explaining the structure.
 
-Watch Demo Video
- ← (Replace this with your Loom link)
+Watch Demo Video: https://www.loom.com/share/0581db189c2e435f8f9423b3723fad7b
 
 🌐 Live / Hosted Links
 
