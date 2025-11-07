@@ -1,6 +1,6 @@
 import express from 'express'
 import { upload } from '../middleware/upload.js'
-import { createItems, deleteItem, getAllItems, getIitemsBySubCategories, getItemsByCategories, getItemsById, updateItems } from '../controllers/item.controller.js'
+import { createItems, deleteItem, getAllItems, getIitemsBySubCategories, getItemsByCategories, getItemsById, searchItems, updateItems } from '../controllers/item.controller.js'
 const router = express.Router()
 
 router.post('/create' , upload.single('image') , createItems)
