@@ -147,9 +147,9 @@ Watch Demo Video
 
 🌐 Live / Hosted Links
 
-GitHub Repo: https://github.com/<your-username>/menu-management-backend
+GitHub Repo: https://github.com/suraj371k/menu-management
 
-Live API (if hosted): https://menu-api.onrender.com
+Live API: https://menu-management-81kz.onrender.com
 
 🧑‍💻 Author
 
